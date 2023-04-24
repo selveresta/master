@@ -1,0 +1,1 @@
+export const MAX_FILMS = 100000
