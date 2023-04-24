@@ -45,7 +45,6 @@ export class FindRandomFilm extends Command {
     private async getFilm(ctx: NarrowedContext<IBotContext, { message: Update.New & Update.NonChannel & Message.TextMessage; update_id: number; }>) {
         try {
             const data = await axios.get<Film>(`${URLS.MAIN_URL}/movie/${this.getRandomNum(MAX_FILMS)}?api_key=${process.env.API_KEY}`)
-            console.log(data.data.id)
             const imageURL: string = `${URLS.IMAGE_URL}`.concat(data.data.poster_path)
 
             const image = Input.fromURLStream(imageURL)

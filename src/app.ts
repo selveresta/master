@@ -6,6 +6,7 @@ import { Command } from "./commands/command.class";
 import { StartCommand } from "./commands/start.command";
 import LocalSession from "telegraf-session-local";
 import { FindRandomFilm } from "./commands/findRandomFilm.command";
+import { FindFilmOnRating } from "./commands/findFilmOnRating.command";
 
 class Bot {
 
@@ -18,7 +19,7 @@ class Bot {
     }
 
     init() {
-        this.commands = [new StartCommand(this.bot), new FindRandomFilm(this.bot)]
+        this.commands = [new StartCommand(this.bot), new FindRandomFilm(this.bot), new FindFilmOnRating(this.bot)]
         for (const command of this.commands) {
             command.handle()
         }
